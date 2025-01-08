@@ -1,0 +1,175 @@
+.navbar {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+}
+
+.navbar,
+.navbar * {
+  box-sizing: border-box;
+}
+
+.navbar_container {
+  /* max-width: 1440px; */
+  width: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+  display: flex;
+  z-index: 4;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  height: 70px;
+}
+
+.nav_logo {
+  margin: 25px;
+  width: 15%;
+  max-width: 50px;
+  height: auto;
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+.nav_items {
+  font-family: Rethink Sans;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  width: 77vw;
+  max-width: 600px;
+  gap: 1px;
+  min-width: 500px;
+  padding-right: 19px;
+  text-wrap: nowrap;
+}
+.nav_item {
+  cursor: pointer;
+  color: #959595;
+  transition: 0.3s ease;
+}
+.nav_item:hover {
+  transition: 0.3s ease;
+  color: #000000;
+  font-weight: 600;
+}
+
+.nav_toggle {
+  background: none;
+  border: 0;
+  z-index: 3;
+}
+
+.nav_item_active {
+  color: #000000;
+  cursor: pointer;
+}
+
+@media (max-width: 880px) {
+  .nav_items {
+    position: fixed;
+    top: 0;
+    left: 105vw;
+    padding-top: 110px;
+    padding-right: 0px;
+    font-size: 18px;
+    z-index: 2;
+    height: 100%;
+    min-width: 300px;
+    max-width: none;
+    width: 105vw;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(252, 252, 252);
+    justify-content: start;
+    gap: 30px;
+    background-size: cover;
+    transition: 0.3s;
+    transform: translateX(-103%);
+  }
+
+  .nav_item {
+    font-size: 48px;
+    text-align: left;
+  }
+
+  .nav_item_active {
+    font-size: 48px;
+  }
+
+  .nav_toggle {
+    display: inline-block;
+    margin-right: 30px;
+  }
+
+  .responsive_nav {
+    transform: none;
+  }
+
+  .nav_logo {
+    margin: 15px;
+    width: 10%;
+    min-width: 70px;
+    height: auto;
+  }
+
+  .hamburger {
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    display: flex;
+    z-index: 1001;
+    margin-top: 20px;
+    margin-right: 20px;
+    animation: inverseSpin 0.5s forwards;
+  }
+
+  .hamburger span {
+    width: 30px;
+    height: 3px;
+    cursor: pointer;
+    background-color: #a3a3a3;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.open {
+    animation: spin 0.5s forwards;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5.5px, 4.5px);
+    z-index: 1001;
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7.5px, -5px);
+    z-index: 1001;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes inverseSpin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

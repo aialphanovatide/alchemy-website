@@ -1,0 +1,9 @@
+.impact_container{
+
+    width: 90vw;
+    height: 550px;
+    background-image: url('../../../public/static/images/impact-bg.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}

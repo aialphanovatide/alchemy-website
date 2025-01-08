@@ -1,0 +1,24 @@
+.begin_container{
+    width: 90vw;
+    height: 500px;
+    background-image: url('../../../public/static/images/begin-bg.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title_begin{
+    font-family: Rethink Sans;
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+.subtitle_begin{
+    font-family: Rethink Sans;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    max-width: 550px;
+}

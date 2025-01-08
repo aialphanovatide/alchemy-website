@@ -1,0 +1,16 @@
+.vision_container{
+    width: 90vw;
+    height: 500px;
+    background-image: url('../../../public/static/images/vision.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+@media screen and (max-width: 880px){
+    .vision_container{
+        background-image: url('../../../public/static/images/vision-mobile.svg');
+    }
+    
+}

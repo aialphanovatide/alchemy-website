@@ -1,0 +1,130 @@
+.gif-active{
+    display: inline-block;
+
+}
+.gif-inactive{
+    display: none;
+}
+
+.first_begin{
+    position: relative;
+    top: -320px;
+    left: 305px;
+    max-width: 238px;
+
+    font-family: Rethink Sans;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0;
+}
+
+.second_begin{
+    position: relative;
+    top: -410px;
+    left: -330px;
+    max-width: 280px;
+
+    font-family: Rethink Sans;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: right;
+    opacity: 0;
+}
+
+.third_begin{
+    position: relative;
+    top: -500px;
+    left: 305px;
+    max-width: 238px;
+
+    font-family: Rethink Sans;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0;
+    text-align: left;
+}
+
+.first_begin.active{
+    animation: fadeInFirst 25.1s  infinite;
+}
+.second_begin.active{
+    animation: fadeInSecond 25.1s infinite;
+}
+.third_begin.active{
+    animation: fadeInThird 25.1s infinite;
+}
+
+@keyframes fadeInFirst {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    23% {
+        opacity: 1;
+    }
+    25.5% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInSecond {
+    0% {
+        opacity: 0;
+    }
+    28% {
+        opacity: 0;
+
+    }
+    38%{
+        opacity: 1;
+    }
+    53% {
+        opacity: 1;
+    }
+    58.78% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInThird {
+    0% {
+        opacity: 0;
+    }
+    59% {
+        opacity: 0;
+    }
+    63%{
+        opacity: 1;
+    }
+    92% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 880px){
+    .first_begin{
+        top: -80px;
+        left: 0;
+        max-width: 238px;
+        text-align: center;
+    }
+
+    .second_begin{
+        top: -172px;
+        left: 0;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .third_begin{
+        top: -270px;
+        left: 0;
+        max-width: 238px;
+        text-align: center;
+    }
+}
