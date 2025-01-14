@@ -1,8 +1,34 @@
-.home_container{
-    background-image: url("../../../public/static/images/background-home.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 90vh;
+.video_background_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90vh; /* same height as .home_container if you want that match */
+  overflow: hidden; /* ensures the video doesn’t spill out */
+  z-index: -1; /* so the video stays behind the text */
+}
+
+/* Force the video to fill this area nicely */
+.background_video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures the video covers the box without weird stretching */
+}
+
+/* We keep .home_container to define layout for your TitlePage text */
+.home_container {
+  width: 100%;
+  height: 90vh; /* match the video wrapper’s height */
+}
+
+.title_container {
+  opacity: 0; /* start invisible */
+  animation: fadeIn 1.5s forwards ease-in-out;
+  /* We can put a slight fade duration (e.g. 1.5s) */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }

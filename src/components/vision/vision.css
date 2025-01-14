@@ -1,16 +1,88 @@
-.vision_container{
-    width: 90vw;
-    height: 500px;
-    background-image: url('../../../public/static/images/vision.svg');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-
+.vision_container {
+  width: 100%;
+  height: 120vh; /* or whatever you need */
 }
 
-@media screen and (max-width: 880px){
-    .vision_container{
-        background-image: url('../../../public/static/images/vision-mobile.svg');
-    }
-    
+/* The base state */
+.second_video_background_wrapper {
+  margin-top: 0;
+  margin-left: -5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  /* This is what makes the "smooth push down" happen over 1 second */
+  transition: margin-top 1s ease-in-out;
+}
+
+video.background_video {
+  opacity: 0.8;
+}
+
+/* When pushDown is true, we add the .pushed class to move it down */
+.second_video_background_wrapper.pushed {
+  margin-top: 200px;
+}
+
+/* If you have a fade-in for the text (TitlePage), 
+     you can either do it inside titlePage.css, or here.
+     Example:
+  .title_container {
+    animation: fadeIn 1.5s forwards ease-in-out;
+    opacity: 0; 
+  }
+  
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  */
+
+.vision_texts_container {
+  position: absolute; /* so these are above the video */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Rethink Sans;
+  /* You could add pointer-events: none if you want clicks to pass through. */
+}
+
+/* Generic styles for each text block */
+.vision_text {
+  position: absolute;
+  width: 200px; /* or auto */
+  color: #000; /* or #fff, depending on your video background */
+  font-family: Rethink Sans;
+  text-align: center;
+  /* Optionally, add a fade-in transition if you like: */
+  animation: fadeIn 1s forwards ease-in-out;
+  opacity: 0;
+}
+
+.vision_text_1 {
+  top: 18%;
+  right: 28%;
+  text-align: left;
+}
+
+/* For example: left-middle text */
+.vision_text_2 {
+  top: 38%;
+  left: 28%;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+/* For example: right-middle text */
+.vision_text_3 {
+  top: 55%;
+  right: 28%;
+  text-align: left;
+}
+
+@media screen and (max-width: 880px) {
+  /* Adjust your responsive layout here */
 }
