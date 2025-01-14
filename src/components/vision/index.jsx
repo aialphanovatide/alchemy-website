@@ -2,12 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 import TitlePage from "../titlePage";
 import "./vision.css";
 
+// This ref won't reset between tabs,
+// but will reset if the page is fully reloaded.
 function Vision({ isActive }) {
   const videoRef = useRef(null);
 
-  // State for controlling the text
+  // This ref tracks whether we have already played the animation once
+  const hasVisitedRef = useRef(false);
+
+  // Same as before
   const [showText, setShowText] = useState(false);
-  // State for controlling push-down animation
   const [pushDown, setPushDown] = useState(false);
 
   useEffect(() => {
@@ -15,26 +19,45 @@ function Vision({ isActive }) {
     let textTimer;
 
     if (isActive) {
-      // Reset everything
-      setShowText(false);
-      setPushDown(false);
+      // If we haven't run the animation yet, do it now
+      if (!hasVisitedRef.current) {
+        hasVisitedRef.current = true; // mark as “visited” so we never repeat
+        setShowText(false);
+        setPushDown(false);
 
-      if (videoRef.current) {
-        videoRef.current.currentTime = 0;
-        videoRef.current.play();
-      }
+        // Start video from the beginning
+        if (videoRef.current) {
+          videoRef.current.currentTime = 0;
+          videoRef.current.play();
+        }
 
-      // 1) Push down the wrapper a bit before the text appears, e.g. at 5 seconds
-      pushTimer = setTimeout(() => {
-        setPushDown(true);
-      }, 5000);
+        // 1) Push down at 5s
+        pushTimer = setTimeout(() => {
+          setPushDown(true);
+        }, 5000);
 
-      // 2) Then show text at 6 seconds
-      textTimer = setTimeout(() => {
+        // 2) Reveal text at 6s, freeze video at last frame
+        textTimer = setTimeout(() => {
+          setShowText(true);
+          if (videoRef.current) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = videoRef.current.duration;
+          }
+        }, 6000);
+      } else {
+        // If we already visited before, skip the animation
+        // Just set everything to the “final” state
         setShowText(true);
-      }, 6000);
+        setPushDown(true);
+
+        // Freeze video at last frame
+        if (videoRef.current) {
+          videoRef.current.pause();
+          videoRef.current.currentTime = videoRef.current.duration;
+        }
+      }
     } else {
-      // If user leaves the tab, pause the video and clear timeouts
+      // Leaving the Vision tab: pause the video if it's still playing
       if (videoRef.current) {
         videoRef.current.pause();
       }
@@ -50,7 +73,7 @@ function Vision({ isActive }) {
     <div className="page_container">
       <div
         className={
-          `second_video_background_wrapper ` + (pushDown ? "pushed" : "")
+          "second_video_background_wrapper " + (pushDown ? "pushed" : "")
         }
       >
         <video

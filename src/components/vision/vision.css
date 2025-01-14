@@ -27,19 +27,6 @@ video.background_video {
   margin-top: 200px;
 }
 
-/* If you have a fade-in for the text (TitlePage), 
-     you can either do it inside titlePage.css, or here.
-     Example:
-  .title_container {
-    animation: fadeIn 1.5s forwards ease-in-out;
-    opacity: 0; 
-  }
-  
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-  */
-
 .vision_texts_container {
   position: absolute; /* so these are above the video */
   top: 0;
@@ -84,5 +71,38 @@ video.background_video {
 }
 
 @media screen and (max-width: 880px) {
+  .second_video_background_wrapper {
+    width: 100%;
+    height: 100vh;
+    margin-left: 0%;
+    padding-bottom: 100px;
+  }
+
+  .vision_text {
+    font-size: 14px;
+  }
   /* Adjust your responsive layout here */
+  .vision_text_1 {
+    top: 17%;
+    right: 5%;
+    text-align: left;
+    width: 130px;
+  }
+
+  /* For example: left-middle text */
+  .vision_text_2 {
+    top: 75%;
+    left: 5%;
+    transform: translateY(-50%);
+    text-align: right;
+    width: 140px;
+  }
+
+  /* For example: right-middle text */
+  .vision_text_3 {
+    top: 95%;
+    right: 22.5%;
+    text-align: center;
+    margin-top: -70px;
+  }
 }

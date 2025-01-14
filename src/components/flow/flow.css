@@ -1,5 +1,76 @@
-.flow_container{
-    width: 90vw;
-    height: 500px;
+/* The wrapper around the GIF + the text */
+.flow_wrapper {
+  position: relative;
+  width: 90vw; /* or whatever width you had before */
+  max-width: 1200px; /* optional max width */
+  margin: 0 auto; /* center horizontally if you want */
+  height: auto; /* or a fixed height if your design requires */
 }
 
+/* The GIF itself */
+.flow_image {
+  width: 50%;
+  margin-left: 25%;
+  height: auto; /* so it scales responsively */
+  display: block; /* remove any inline spacing */
+}
+
+/* The text blocks that are absolutely positioned over/around the GIF */
+.flow_text {
+  position: absolute;
+  color: #000; /* or whatever color you want */
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 18px; /* tweak to your liking */
+  width: 200px; /* or auto, depending on your layout */
+  text-align: center; /* or left/right as needed */
+}
+
+/* Now place each text based on the funnel design from your screenshot */
+.flow_text_top {
+  top: 0; /* near the top edge of the .flow_wrapper */
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 330px;
+}
+
+.flow_text_left {
+  top: 40%; /* about 40% down from top; adjust to match your funnel shape */
+  left: 15%; /* near the left side */
+  text-align: right;
+}
+
+.flow_text_right {
+  top: 40%;
+  right: 15%; /* near the right side */
+  width: 200px; /* or less/more to avoid wrapping */
+  text-align: left; /* optional if you want it right-aligned */
+}
+
+@media screen and (max-width: 768px) {
+  .flow_image {
+    width: 160%;
+    margin-left: -30%;
+    height: auto; /* so it scales responsively */
+    display: block; /* remove any inline spacing */
+    margin-top: -70px;
+  }
+  .flow_text {
+    font-size: 14px;
+  }
+  .flow_text_top {
+    top: 70%; /* move it down a bit */
+    width: 200px; /* or less to avoid wrapping */
+  }
+
+  .flow_text_left {
+    top: 40%; /* move it down a bit */
+    left: -5%; /* move it closer to the left edge */
+    width: 140px;
+  }
+
+  .flow_text_right {
+    top: 50%; /* move it down a bit */
+    right: -5%; /* move it closer to the right edge */
+    width: 140px;
+  }
+}
