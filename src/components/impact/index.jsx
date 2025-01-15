@@ -62,6 +62,9 @@ function Impact({ isActive }) {
           ref={videoRef}
           src="/static/videos/impactGif.mp4"
           muted
+          autoPlay
+          playsInline
+          webkit-playsinline
           className="background_video_impact"
         />
         {showText && (
