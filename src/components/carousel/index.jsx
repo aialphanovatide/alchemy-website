@@ -49,7 +49,7 @@ function Carousel({ slideIndex, setSlideIndex }) {
             <Flow />
           </SplideSlide>
           <SplideSlide className="splide-slide">
-            <Impact />
+            <Impact isActive={currentIndex === 4} />
           </SplideSlide>
           <SplideSlide className="splide-slide">
             <Begin />
