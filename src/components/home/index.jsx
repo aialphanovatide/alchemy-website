@@ -31,6 +31,8 @@ function Home() {
           src="/static/videos/alchemyMainVideoAnimationFirstPart.mp4"
           autoPlay
           muted
+          playsInline
+          webkit-playsinline
           onPlay={handleVideoPlay}
           className="background_video"
         />
