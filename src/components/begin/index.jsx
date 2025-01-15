@@ -20,6 +20,8 @@ function Begin() {
           src="/static/videos/contactCloud.mp4"
           autoPlay
           muted
+          playsInline
+          webkit-playsinline
           className="begin_background_video"
           onEnded={handleVideoEnd}
         />
