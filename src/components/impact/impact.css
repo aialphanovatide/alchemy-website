@@ -73,7 +73,7 @@ video.background_video_impact {
   .third_video_background_wrapper {
     width: 100%;
     height: 100vh;
-    margin-left: -105%;
+    margin-left: -10%;
     padding-bottom: 100px;
     min-width: none;
     max-width: none;
