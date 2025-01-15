@@ -80,6 +80,9 @@ function Vision({ isActive }) {
           ref={videoRef}
           src="/static/videos/alchemyMainVideoAnimationSecondPart.mp4"
           muted
+          autoPlay
+          playsInline
+          webkit-playsinline
           className="background_video"
         />
         {showText && (

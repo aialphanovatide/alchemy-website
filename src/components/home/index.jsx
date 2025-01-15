@@ -24,7 +24,6 @@ function Home() {
 
   return (
     <div className="page_container">
-      {/* This div holds the background video in an absolutely positioned layer */}
       <div className="video_background_wrapper">
         <video
           ref={videoRef}
